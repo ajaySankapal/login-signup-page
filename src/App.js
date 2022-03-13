@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Typography } from "@material-ui/core";
+import { Link, Route, BrowserRouter as Router, Routes } from "react-router-dom";
+import Login from "./Login";
+import Registration from "./Registration";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="wrapper-c">
+        <Router>
+          <div className="navigation">
+            <nav>
+              <ul className="nav-links">
+                <li>
+                  <Link to="/">SignUp</Link>
+                </li>
+                <li>
+                  <Link to="/login">LogIn </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <Routes>
+            <Route path="/" element={<Registration />} />
+            <Route path="/login" element={<Login />} />
+          </Routes>
+        </Router>
+      </div>
     </div>
   );
 }
